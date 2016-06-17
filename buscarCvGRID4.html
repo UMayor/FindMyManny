@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--
+Bambinaia (niñera en italiano)
+
+berceuse (nana en fraces)
+-->
+<link rel="stylesheet" type="text/css" href="_STY/estilos.css"/>
+<link rel="stylesheet" type="text/css" href="_STY/jquery-ui-1.9.0.custom.css">
+
+<script language="javascript" type="text/javascript" src="_FUN/jquery-1.8.2.min.js"></script>
+<script language="javascript" type="text/javascript" src="_FUN/jquery-ui-1.9.0.custom.min.js"></script>
+
+<!-- easyui -->
+<link rel="stylesheet" type="text/css" href="_FUN/jquery-easyui-1.3/themes/pepper-grinder/easyui.css"/>
+<link rel="stylesheet" type="text/css" href="_FUN/jquery-easyui-1.3/themes/icon.css"/>
+<script type="text/javascript" src="_FUN/jquery-easyui-1.3/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="_FUN/jquery-easyui-1.3/locale/easyui-lang-es.js"></script>
+<script type="text/javascript" src="_FUN/jquery-easyui-1.3/datagrid-detailview.js"></script>
+
+<!-- jquery UI -->
+<link rel="stylesheet" type="text/css" href="_FUN/jquery-ui/themes/base/jquery.ui.all.css">
+<script src="_FUN/jquery-ui/ui/jquery.ui.core.js"></script>
+<script src="_FUN/jquery-ui/ui/jquery.ui.widget.js"></script>
+<script src="_FUN/jquery-ui/ui/jquery.ui.position.js"></script>
+<script src="_FUN/jquery-ui/ui/jquery.ui.autocomplete.js"></script>
+<script src="_FUN/jquery-ui/ui/jquery.ui.datepicker.js"></script>
+<script src="_FUN/jquery-ui/ui/jquery.ui.button.js"></script>
+
+<script src="_FUN/jquery-ui.min.js"></script>
+
+
+
+
+
+
+
+<style>
+
+</style>
+
+<script language="javascript">
+$(document).ready(function(e) {
+	$("#btnBuscar").bind("click",function(){
+		//alert("btn");
+		var js= [
+				 {nombre:"JOSEFINA UNDURRAGA", 	comuna:"LO BARNECHEA"},
+				 {nombre:"CATALINA LARRAIN", 	comuna:"PROVIDENCIA"},
+				 {nombre:"CAMILA VIAL", 		comuna:"LAS CONDES"},
+				 {nombre:"FRANCISCA COLMAN", 	comuna:"VITACUARA"},
+				 {nombre:"FERNANDA RIOSECO", 	comuna:"LA REINA"},
+				 {nombre:"JOSEFINA UNDURRAGA", 	comuna:"LO BARNECHEA"},
+				 {nombre:"CATALINA LARRAIN", 	comuna:"PROVIDENCIA"},
+				 {nombre:"CAMILA VIAL", 		comuna:"LAS CONDES"},
+				 {nombre:"FRANCISCA COLMAN", 	comuna:"VITACUARA"},
+				 {nombre:"FERNANDA RIOSECO", 	comuna:"LA REINA"},
+				 {nombre:"JOSEFINA UNDURRAGA", 	comuna:"LO BARNECHEA"},
+				 {nombre:"CATALINA LARRAIN", 	comuna:"PROVIDENCIA"},
+				 {nombre:"CAMILA VIAL", 		comuna:"LAS CONDES"},
+				 {nombre:"FRANCISCA COLMAN", 	comuna:"VITACUARA"},
+				 {nombre:"FERNANDA RIOSECO", 	comuna:"LA REINA"},
+				 ];
+		$('#tt_buscar').datagrid('loadData', js);
+
+	});// fin btnBuscar
+
+});//fin ready
+		
+//////////////////   grilla 
+$(function(){
+	var lastIndex=0;
+	//var cantRows=$('#tt_buscar').datagrid('getRows').length-1;
+
+	var struct_buscar =  [[
+						{field:'actionPedido',				title:' ',			width:321, align:'left',	
+								formatter:function(value,row,index){
+									//alert(row.cv_id);
+									//////////////////////////////////
+									///// cargaBusqueda
+									var cargaBusqueda="";
+										
+										cargaBusqueda+="<div style='padding-top:5px; padding-bottom:5px; vertical-align:middle; height:70px'>";
+										cargaBusqueda+=" <table width='314' border='0' style='border: 1px solid #d0d0d0;' align='left' bgcolor='#FFFFFF'>";
+										cargaBusqueda+="   <tr>";
+										cargaBusqueda+=" 	<td height='60' align='left' style='border: 1px solid #FFFFFF;'>";
+										cargaBusqueda+=" 	<table width='300' border='0' style='border: 1px solid #FFFFFF;'>";
+										cargaBusqueda+=" 	  <tr>";
+										cargaBusqueda+=" 		<td width='142' class='texto_gris_noti' style='border: 1px solid #FFFFFF;'><span class='texto_gris_noti' style='font-size: 20px;'>"+row.nombre+"</span></td>";
+										cargaBusqueda+=" 		<td width='1' align='center' style='border: 1px solid #FFFFFF;'>&nbsp;</td>";
+										cargaBusqueda+=" 	  </tr>";
+										cargaBusqueda+=" 	  <tr>";
+										cargaBusqueda+=" 		<td class='texto_gris_noti' style='border: 1px solid #FFFFFF;'><span class='texto_naranjo_noti'>"+row.comuna+"</span></td>";
+										cargaBusqueda+=" 		<td width='1' align='center' style='border: 1px solid #FFFFFF;'>&nbsp;</td>";
+										cargaBusqueda+=" 	  </tr>";
+										cargaBusqueda+=" 	</table>";
+										cargaBusqueda+=" 	</td>";
+										cargaBusqueda+="   </tr>";
+										cargaBusqueda+=" </table>";
+										cargaBusqueda+="</div>";
+
+										//alert(cargaBusqueda);
+									///// fin cargaBusqueda
+									//////////////////////////////////
+
+									return(cargaBusqueda);
+								}//fin formatter
+						}//fin field
+						]];
+
+	$('#tt_buscar').datagrid({
+		columns: struct_buscar,
+		//url: "buscarCV_ajax.php",
+		singleSelect: false,
+		width:324,
+		height:610,
+		autoRowHeight: true,
+		idField:'cv_id',		
+		sortName: 'cv_id',
+		sortOrder: 'desc',
+		remoteSort: false,
+		nowrap: true,
+		striped: true,		
+		pagination:true,
+		loadMsg:'cargando ... ',
+		rownumbers:false,			
+		pageList: [6],
+		onDblClickRow:function(rowIndex, rowData){
+
+		},
+		onSelect:function(rowIndex, rowData){
+			//alert("onSelect= "+rowData.cv_id);
+			seleccionar(rowData.cv_id);
+		},
+		onUnselect:function(rowIndex, rowData){
+			//alert("onUnselect= "+rowData.cv_id);
+			deseleccionar(rowData.cv_id);
+		}
+	});		
+});
+////////////////// FIN grilla 
+</script> 
+
+</head>
+
+<body>
+<!-- GRILLA HTML -->
+<div id="caja_busqueda_cv"></div>
+<div id="btnBuscar" style="cursor:pointer"><img src="_IMG/btn_buscar_cv.jpg" width="150" height="48" /></div>
+<table id="tt_buscar" class="easyui-datagrid"></table>
+<!-- FIN: GRILLA HTML -->
+
+
+
+</body>
+</html>

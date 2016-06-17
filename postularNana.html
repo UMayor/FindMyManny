@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Find my Nanny</title>
+
+  <link rel="stylesheet" href="jquery-ui.css">
+  <script src="jquery-1.11.3.js"></script>
+  <script src="jquery-ui.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script>
+  $(function() {
+    var availableTags = [
+		"BUIN",
+		"CALERA DE TANGO",
+		"CERRILLOS",
+		"CERRO NAVIA",
+		"COLINA",
+		"CONCHALI",
+		"CURACAVI",
+		"EL BOSQUE",
+		"EL MONTE",
+		"ESTACION CENTRAL",
+		"HUECHURABA",
+		"INDEPENDENCIA",
+		"ISLA DE MAIPO",
+		"LA CISTERNA",
+		"LA FLORIDA",
+		"LA GRANJA",
+		"LA PINTANA",
+		"LA REINA",
+		"LAMPA",
+		"LAS CONDES",
+		"LO BARNECHEA",
+		"LO ESPEJO",
+		"LO PRADO",
+		"MACUL",
+		"MAIPU",
+		"MELIPILLA",
+		"PADRE HURTADO",
+		"PAINE",
+		"PEDRO AGUIRRE CERDA",
+		"PIRQUE",
+		"PROVIDENCIA",
+		"PUDAHUEL",
+		"PUENTE ALTO",
+		"QUILICURA",
+		"QUINTA NORMAL",
+		"RECOLETA",
+		"RENCA",
+		"SAN BERNARDO",
+		"SAN JOAQUIN",
+		"SAN JOSE DE MAIPO",
+		"SAN MIGUEL",
+		"SAN RAMON",
+		"SANTIAGO",
+		"TALAGANTE",
+		"TILTIL",
+		"VITACURA"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  });
+  </script>
+
+
+
+<!--<script src="_FUN/jquery-ui.min.js"></script>-->
+	
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="justified-nav.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="carousel.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <script>
+  $(function() {
+    $( "#dialog" ).dialog();
+  });
+  </script>
+
+<script>
+//$( "#dialog" ).dialog({ autoOpen: false });
+$(document).ready(function(){
+	$( "#dialog" ).dialog( "close" );
+	$("#marcoPublicada").html("OFF");
+});
+
+function mapa(){
+	alert("mapa");
+}
+
+function funAceptar(){
+	//alert("aceptar");
+	$( "#dialog" ).dialog( "close" );
+	$("#marcoPublicada").html("ON");
+}
+function funCancelar(){
+	//alert("cancelar");
+	$( "#dialog" ).dialog( "close" );
+}
+function funPostular(){
+	//alert("publicarme");
+	$( "#dialog" ).dialog( "open" );
+}
+//$(this).destroy().remove();
+
+</script> 
+
+  </head>
+
+  <body>
+
+    <div class="container">
+<!-- dialogo -->
+	<div id="dialog" title="POSTULAR">
+			<p><center>¿Está seguro que desea postular a esta oferta de trabajo?</center></p>
+			<p><center><button type="button" class="btn btn-sm btn-default" onclick="funAceptar()">SI</button>
+			&nbsp;&nbsp;<button type="button" class="btn btn-sm btn-default" onclick="funCancelar()">NO</button></center></p>
+		</div>
+<!-- fin:dialogo -->	
+
+      <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+      <div class="masthead">
+
+	  <h3 class="text-danger">Find My Nanny!</h3>
+	 
+     
+      
+        <nav >
+		
+          <ul class="nav nav-justified">
+            <li ><a href="inicioNana.html">Inicio</a></li>
+            <li><a href="perNana.html">Perfil</a></li>
+			<li class="active"><a href="postularNana.html">Postular</a></li>
+            <li><a href="index.php">Salir</a></li>
+          </ul>
+		  
+        </nav>
+		
+      </div>
+	  <div style="color:orange; text-align: right;">USUARIO: NANA</div>
+		
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h3>POSTULAR</h3>
+      </div>
+
+	
+	<div class="container">
+	   
+	   <div class="panel panel-default col-md-12">
+            <div class="panel-body">
+                <div class="container-fluid">
+				<div class="input-group curso_codigo ui-widget">
+                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
+                        <input type="search" class="form-control" placeholder="Busque una oferta de trabajo por comuna." aria-describedby="basic-addon1" id="tags">
+                    </div><br>
+                    <button class="btn btn-primary col-md-12 col-xs-12">Buscar</button>
+                </div>
+            </div>
+        </div>
+		
+
+	</div>  
+	 <div class="panel panel-default col-md-7">
+        <div class="panel-heading" style=" background-color: #FFFFFF;"><b>Lista de ofertas de trabajo</b></div>
+        <div class="panel-body tabla_info" id="dvData">
+            <div class="table-responsive">
+                <table class="table table-hover" id="mytable" >
+                    <tr>
+                        <th>Nombre</th><th>Fecha solicitud</th><th>Dirección</th><th>Detalle</th>
+                    </tr>
+                    <tr>
+                        <td>Cecilia Flores A.</td><td>15 de mayo de 2016</td><td>Pasaje Jorge Matte Gormaz, Providencia</td><td><button class="btn btn-info" onclick="funPostular()">Postular</button></td>
+                    </tr>
+                    <tr>
+                        <td>Paula Araya C.</td><td>7 de mayo de 2016</td><td> Alvarez de Toledo, San Miguel </td><td><button class="btn btn-info" onclick="funPostular()">Postular</button></td>
+                    </tr>
+                    <tr>
+                        <td>Florencia Echeverría R.</td><td>1 de mayo de 2015</td><td>Pasaje Neftali Reyes, Maipú </td><td><button class="btn btn-info" onclick="funPostular()">Postular</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" bgcolor="#FFFFFF" align="right">&nbsp;<button class="btn btn-sm btn-default btn-sm" style="color:#AAAAAA;"><<</button>&nbsp;<button class="btn btn-sm btn-default btn-sm" style="color:#AAAAAA;"><</button>&nbsp;<button class="btn btn-sm btn-default btn-sm" style="color:#AAAAAA;">></button>&nbsp;<button class="btn btn-sm btn-default btn-sm" style="color:#AAAAAA;">>></button></td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+	
+		<div class="panel panel-default col-md-1" style="border-color:#FFFFFF; width: 50px">
+			&nbsp;
+			<!-- aire -->
+		</div>
+
+<div class="container">
+		
+		 <div class="panel panel-default col-md-4">
+			<div class="panel-heading" style=" background-color: #FFFFFF;">Dirección del trabajo</div>
+            <div class="panel-body">
+                <div class="container-fluid">
+
+					<div align="center" id="googleMap" style="width:300px;height:300px;" class ="center-block" > </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+</div>	  
+	  
+      <!-- Site footer -->
+       
+	  <div class="container">
+            <div class="row">
+                <div  style="text-align: center;">
+                <p class="col-md-4">Call Center</p>
+                <p class="col-md-4"><span class="glyphicon glyphicon-phone-alt"> 300 300 3000</span></p>
+                <p class="col-md-4"><span class="glyphicon glyphicon-envelope"></span><a href="#"> findmynanny@support.com</a></p>
+                </div>
+            </div>
+        </div>
+      <footer>
+        <p>&copy; 2016 Find my Nanny Corp.</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+
+var myCenter=new google.maps.LatLng(-33.431811,-70.618376);
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:16,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker=new google.maps.Marker({
+  position:myCenter,
+    animation:google.maps.Animation.BOUNCE
+  });
+
+marker.setMap(map);
+
+var infowindow = new google.maps.InfoWindow({
+  content:"Su dirección"
+  });
+
+infowindow.open(map,marker);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+  </body>
+</html>
